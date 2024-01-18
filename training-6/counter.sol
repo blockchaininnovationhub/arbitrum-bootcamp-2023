@@ -22,7 +22,6 @@ contract Counter {
 
     // Function to decrement the count by 1
     function decrement() public {
-        require(count > 0, "Count cannot go below zero");
         count -= 1;
     }
 
