@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Ethers.js</title>
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
+    ></script>
+    <script type="module">
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+      // BASIC RPC METHODS
+
+      // connect to meta mask
+
+      await provider.send("eth_requestAccounts", []);
+
+      await provider.send("eth_getBalance", [
+        "0x6CBe925762348413fc2cfDD7bC9A8D04CB8E249e",
+      ]);
+
+      await provider.send("eth_blockNumber", []);
+
+      console.log(
+        await provider.send("eth_getCode", [
+          "0x5B56438000bAc5ed2c6E0c1EcFF4354aBfFaf889",
+        ])
+      );
+
+      // SENDING FUNDS
+
+      const tx = {
+        to: "0x63946C181B4B2Aa3621847EC14CC08D383Ddf791",
+        value: ethers.utils.parseUnits("0.001", "ether"),
+        gasPrice: ethers.utils.parseUnits("0.1", "gwei"),
+      };
+
+      const signers = provider.getSigner();
+
+      await signers.sendTransaction(tx);
+
+      // SIGN MESSAGES
+
+      //   await signers.signMessage("hello world!");
+    </script>
+  </head>
+  <body></body>
+</html>
