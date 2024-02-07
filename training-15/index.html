@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Ethers.js</title>
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
+    ></script>
+    <script type="module">
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+      const contractWithProvider = new ethers.Contract("0xD6ED3927A36073Ea15BD6d06fFAae0B2136D35Bf", `[
+                                                                                {
+                                                                                  "inputs": [
+                                                                                    {
+                                                                                      "internalType": "uint256",
+                                                                                      "name": "num",
+                                                                                      "type": "uint256"
+                                                                                    }
+                                                                                  ],
+                                                                                  "name": "store",
+                                                                                  "outputs": [],
+                                                                                  "stateMutability": "nonpayable",
+                                                                                  "type": "function"
+                                                                                },
+                                                                                {
+                                                                                  "inputs": [],
+                                                                                  "name": "retrieve",
+                                                                                  "outputs": [
+                                                                                    {
+                                                                                      "internalType": "uint256",
+                                                                                      "name": "",
+                                                                                      "type": "uint256"
+                                                                                    }
+                                                                                  ],
+                                                                                  "stateMutability": "view",
+                                                                                  "type": "function"
+                                                                                }
+                                                                                  ]`, provider)
+
+
+      console.log(await contractWithProvider.retrieve())
+      // console.log(await contractWithProvider.store(1)) // this code will fail because there is no signer
+
+    </script>
+  </head>
+  <body></body>
+</html>
