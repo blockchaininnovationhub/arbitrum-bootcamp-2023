@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting to MetaMask via Ethers.js</title>
+    <script
+    src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+    type="application/javascript"
+  ></script>
+  <script type="module">
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    await provider.send("eth_requestAccounts", []);
+
+    const signer = await provider.getSigner()
+
+
+    const storage = new ethers.Contract("0xA2B72D52c4ba2B4D0745805669E5a3Aff9a2c3C1", 
+[
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			}
+		],
+		"name": "store",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "retrieve",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+],signer)
+
+    // console.log(await storage.store(345, { value: ethers.utils.parseEther("0.0001")}));
+    console.log(await storage.retrieve())
+    console.log(await provider.getBalance("0xA2B72D52c4ba2B4D0745805669E5a3Aff9a2c3C1"));
+
+
+  </script>
+</head>
+<body>
+
+    
+</body>
+</html>
