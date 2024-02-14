@@ -11,10 +11,6 @@ contract Storage {
 
     uint256 number;
 
-    constructor(uint256 _number) {
-        number = _number;
-    }
-
     /**
      * @dev Store value in variable
      * @param num value to store
