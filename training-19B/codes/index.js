@@ -1,8 +1,8 @@
 let http = require('http');
 
 http.createServer(function (req, res) {
-  res.write('Hello World!');
+  res.write('My third Node.js server');
   res.end();
-}).listen(3000, function(){
- console.log("server start at port 3000");
+}).listen(8000, function(){
+ console.log("server started at 8000");
 });
