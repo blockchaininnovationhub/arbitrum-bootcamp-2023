@@ -3,7 +3,6 @@ const { getDefaultProvider } = require("ethers");
 
 const app = express();
 
-
 const provider = getDefaultProvider('https://arbitrum-sepolia.blockpi.network/v1/rpc/public');
 
 app.get('/balance/:address', async (req, res) => {
