@@ -1,22 +1,40 @@
-const express = require('express');
-const { getDefaultProvider } = require("ethers");
+const express = require("express")
 
-const app = express();
+const app = express()
+
+app.get("/", function(req, res) {
+    res.send("hello world")
+})
+
+app.post("/", function(req, res) {
+    res.send("hello world")
+})
+
+app.delete("/", function(req, res) {
+    res.send("hello world")
+})
 
 
-const provider = getDefaultProvider('https://arbitrum-sepolia.blockpi.network/v1/rpc/public');
+app.patch("/", function(req, res) {
+    res.send("hello world")
+})
 
-app.get('/balance/:address', async (req, res) => {
-  try {
-    const address = req.params.address;
-    const balance = await provider.getBalance(address);
+app.put("/", function(req, res) {
+    res.send("hello world")
+})
 
-    return res.json({ address, balance: balance.toString() });
-  } catch (error) {
-    return res.status(500).json({ error });
-  }
-});
+app.get("/api", function(req, res) {
+    res.json({data: "hello world"})
+})
+
+app.get("/api/:name/:id", function(req, res) {
+    const name = req.params.name;
+    const id = req.params.id;
+
+    res.status(200).json({data: "hello world", id, name})
+})
 
 app.listen(3000, () => {
-  console.log(`Server running at http://localhost:3000`);
+    console.log(`Server running at http://localhost:3000`);
 });
+  

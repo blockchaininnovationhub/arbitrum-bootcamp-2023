@@ -17,33 +17,38 @@
 
       await provider.send("eth_requestAccounts", []);
 
-      await provider.send("eth_getBalance", [
-        "0x6CBe925762348413fc2cfDD7bC9A8D04CB8E249e",
-      ]);
+      // await provider.send("eth_getBalance", [
+      //   "0x6CBe925762348413fc2cfDD7bC9A8D04CB8E249e",
+      // ]);
 
-      await provider.send("eth_blockNumber", []);
+      // await provider.send("eth_blockNumber", []);
 
-      console.log(
-        await provider.send("eth_getCode", [
-          "0x5B56438000bAc5ed2c6E0c1EcFF4354aBfFaf889",
-        ])
-      );
+      // console.log(
+      //   await provider.send("eth_getCode", [
+      //     "0x5B56438000bAc5ed2c6E0c1EcFF4354aBfFaf889",
+      //   ])
+      // );
 
       // SENDING FUNDS
 
-      const tx = {
-        to: "0x63946C181B4B2Aa3621847EC14CC08D383Ddf791",
-        value: ethers.utils.parseUnits("0.001", "ether"),
-        gasPrice: ethers.utils.parseUnits("0.1", "gwei"),
-      };
+      // const tx = {
+      //   to: "0x63946C181B4B2Aa3621847EC14CC08D383Ddf791",
+      //   value: ethers.utils.parseUnits("0.001", "ether"),
+      //   gasPrice: ethers.utils.parseUnits("0.1", "gwei"),
+      // };
 
       const signers = provider.getSigner();
 
-      await signers.sendTransaction(tx);
+      // await signers.sendTransaction(tx);
 
       // SIGN MESSAGES
 
-      //   await signers.signMessage("hello world!");
+      const timestamp = Date.now().toString()
+
+      console.log(timestamp)
+
+      console.log(await signers.signMessage(timestamp))
+
     </script>
   </head>
   <body></body>
