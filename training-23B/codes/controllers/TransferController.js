@@ -1,4 +1,4 @@
-const {HDNodeWallet, Mnemonic, ethers, isAddress, parseEther, parseUnits, getBytes} = require('ethers')
+const {HDNodeWallet, Mnemonic, ethers, isAddress, parseUnits} = require('ethers')
 const {isNumeric} = require('validator')
 const dotenv = require('dotenv')
 
