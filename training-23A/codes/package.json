@@ -1,0 +1,21 @@
+{
+  "name": "arbitrum-sdk-ethers",
+  "version": "1.0.0",
+  "description": "A package showing how to deposit ethers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "exec": "hardhat run scripts/exec.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@arbitrum/sdk": "^3.3.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.20.1"
+  }
+}
